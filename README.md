@@ -2,6 +2,8 @@
 
 The script sl/sniff_links.py downloads all files from a page and saves it in a folder.
 
+The script currently downloads .pdf files, more types can be added by modifying the line ```file_types``` in the main function. For example:```file_types=['.pdf', '.zip']```
+
 ### instructions
 
 1. Run ```./install_dependencies.sh``` to install pip install httplib2, validators, bs4
