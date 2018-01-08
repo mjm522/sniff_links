@@ -57,6 +57,9 @@ class SniffLinks():
         except Exception, e:
             print "Exception occured while trying to download the link ", file_link
             print "Exception:", e
+        finally:
+            print "File: ", save_file_name 
+            print "Saved in location: ", self._folder_to_save+save_file_name
         
     def sniffer(self):
         status, response = self._http.request(self._link_to_sniff)
@@ -76,7 +79,7 @@ def main(link_to_sniff, save_folder):
     
     #give location in the PC for saving the files
     if save_folder is None:
-        save_folder = '../downloaded_files/'
+        save_folder = './downloaded_files/'
 
     check_dir(save_folder)
     
