@@ -63,7 +63,7 @@ class SniffLinks():
         
     def sniffer(self):
         status, response = self._http.request(self._link_to_sniff)
-        for link in BeautifulSoup(response, parseOnlyThese=SoupStrainer('a')):
+        for link in BeautifulSoup(response, parse_only=SoupStrainer('a'), features="html.parser"):
             if link.has_attr('href'):
                 src_url = link['href']
                 src_url_split = src_url.split('/')
