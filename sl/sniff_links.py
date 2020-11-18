@@ -54,7 +54,7 @@ class SniffLinks():
     def download_file(self, file_link, save_file_name):
         try:
             self._file_downloader.retrieve(file_link, self._folder_to_save+save_file_name)
-        except Exception, e:
+        except Exception as e:
             print "Exception occured while trying to download the link ", file_link
             print "Exception:", e
         finally:
@@ -68,7 +68,7 @@ class SniffLinks():
                 src_url = link['href']
                 src_url_split = src_url.split('/')
                 for file_type in self._filetypes:
-                    if src_url_split[-1][-len(file_type):] == file_type:
+                    if src_url_split[-1][-len(file_type):].lower() == file_type:
                         self.download_file(urljoin(self._link_to_sniff, link['href']), src_url_split[-1])
 
     def run(self):
